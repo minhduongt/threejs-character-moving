@@ -67,7 +67,7 @@ light();
 generateFloor();
 //MATS
 var mtlLoader = new MTLLoader();
-mtlLoader.load("models/Building1_Large.mtl", function (materials) {
+mtlLoader.load("/models/Building1_Large.mtl", function (materials) {
   materials.preload();
   //BUILDINGS
   const objLoader = new OBJLoader();
@@ -75,7 +75,7 @@ mtlLoader.load("models/Building1_Large.mtl", function (materials) {
   // load a resource
   objLoader.load(
     // resource URL
-    "models/Building1_Large.obj",
+    "/models/Building1_Large.obj",
     // called when resource is loaded
     function (object) {
       object.position.set(20, 0, -30);
@@ -86,7 +86,7 @@ mtlLoader.load("models/Building1_Large.mtl", function (materials) {
 
 // MODEL WITH ANIMATIONS
 var characterControls: CharacterControls;
-new GLTFLoader().load("models/Soldier.glb", function (gltf) {
+new GLTFLoader().load("/models/Soldier.glb", function (gltf) {
   const model = gltf.scene;
 
   model.traverse(function (object: any) {
@@ -164,15 +164,13 @@ function generateFloor() {
   // TEXTURES
   const textureLoader = new THREE.TextureLoader();
   const placeholder = textureLoader.load(
-    "./textures/placeholder/placeholder.png"
+    "/textures/placeholder/placeholder.png"
   );
-  const sandBaseColor = textureLoader.load(
-    "./textures/sand/Sand 002_COLOR.jpg"
-  );
+  const sandBaseColor = textureLoader.load("/textures/sand/Sand 002_COLOR.jpg");
   const sandNormalMap = textureLoader.load("./textures/sand/Sand 002_NRM.jpg");
   const sandHeightMap = textureLoader.load("./textures/sand/Sand 002_DISP.jpg");
   const sandAmbientOcclusion = textureLoader.load(
-    "./textures/sand/Sand 002_OCC.jpg"
+    "/textures/sand/Sand 002_OCC.jpg"
   );
 
   const WIDTH = 80;
